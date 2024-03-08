@@ -1,3 +1,4 @@
+import os
 import turtle as t
 
 playerAscore = 0
@@ -105,6 +106,19 @@ if ball.xcor() > 390:
     ballxdirection = ballxdirection
     playerAscore = playerAscore + 1
     pen.clear()
-    pen.write("player A:{}        player B:{}")
+    pen.write("player A:{}        player B:{}".format(playerAscore,playerBscore),align='center',font=('Arial',24,'normal'))
+
+if (ball.xcore()>340)and(ball.xcor()> 350)and(ball.ycor() < rightpaddle.ycor()+ 40 and ball.ycor() > rightpaddle.ycor() - 40):
+    ball.setx(340)
+    ball_dx = ball_dx * -1
+    os.system("afplay paddle.wav&")
+
+
+
+if (ball.xcor() < -340) and (ball.ycor() > -350) and (
+    ball.ycor() < leftpaddle.ycor() + 40 and ball.ycor() > leftpaddle.ycor() - 40):
+    ball.setx(-340)
+    ball_dx = ball_dx * -1
+    os.system("afplay paddle.wav&")
 
 window.update()
